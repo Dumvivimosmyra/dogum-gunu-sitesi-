@@ -1,0 +1,60 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FFDEE9, #B5FFFC); /* Pastel pembe-mavi */
+    color: #4A4A4A; /* Yazılar için koyu gri */
+    text-align: center;
+    padding: 20px;
+    background-size: 200% 200%; /* Dalgalanma efekti için genişlik */
+    animation: waveAnimation 10s linear infinite; /* Animasyonun süresi */
+}
+
+/* Dalgalanma animasyonu */
+@keyframes waveAnimation {
+    0% {
+        background-position: 0% 50%; /* Başlangıç */
+    }
+    50% {
+        background-position: 100% 50%; /* Yarıda dalgalanma */
+    }
+    100% {
+        background-position: 0% 50%; /* Sonra başa dönme */
+    }
+}
+
+#message-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Şeffaf beyaz kutu */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    display: inline-block;
+}
+    h1 {
+        color: #FF69B4; /* Pastel pembe */
+        font-size: 36px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    }
+    
+    p {
+        font-size: 20px;
+        font-weight: normal;
+        color: #6A0572; /* Pastel mor */
+        margin-top: 15px;
+    }
+
+button {
+    background-color: #FFD1DC; /* Pastel pembe */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #4A4A4A;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #FFB6C1; /* Hafif koyu pastel pembe */
+}
