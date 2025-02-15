@@ -29,3 +29,27 @@ function showRandomMessage() {
 
 // Butona tıklanıldığında rastgele mesaj göster
 document.getElementById("random-message-btn").addEventListener("click", showRandomMessage);
+
+const darkModeButton = document.getElementById("dark-mode-btn");
+const body = document.body;
+
+// LocalStorage'den mod bilgisini al
+if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode");
+    darkModeButton.innerText = "Aydınlık Mod";  // Buton metnini güncelle
+}
+
+// Butona tıklanıldığında mod değiştir
+darkModeButton.addEventListener("click", function() {
+    body.classList.toggle("dark-mode");
+
+    // Modu localStorage'a kaydet
+    if (body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        darkModeButton.innerText = "Aydınlık Mod";  // Buton metnini güncelle
+    } else {
+        localStorage.removeItem("theme");
+        darkModeButton.innerText = "Karanlık Mod";  // Buton metnini geri al
+    }
+});
+
