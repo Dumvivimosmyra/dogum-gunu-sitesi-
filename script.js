@@ -32,14 +32,21 @@ document.getElementById("random-message-btn").addEventListener("click", showRand
 const darkModeButton = document.getElementById("dark-mode-btn");
 const body = document.body;
 
-if (localStorage.getItem("theme") === "dark") {
+// Sayfa yüklenirken tema kontrolü
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
     body.classList.add("dark-mode");
     darkModeButton.innerText = "Aydınlık Mod";
+} else if (savedTheme === "light") {
+    body.classList.remove("dark-mode");
+    darkModeButton.innerText = "Karanlık Mod";
 }
 
+// Karanlık/Aydınlık mod değiştirme
 darkModeButton.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
     const isDark = body.classList.contains("dark-mode");
     localStorage.setItem("theme", isDark ? "dark" : "light");
     darkModeButton.innerText = isDark ? "Aydınlık Mod" : "Karanlık Mod";
 });
+
