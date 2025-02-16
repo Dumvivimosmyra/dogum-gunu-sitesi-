@@ -51,4 +51,37 @@ darkModeButton.addEventListener("click", () => {
     darkModeButton.innerText = isDark ? "Aydınlık Mod" : "Karanlık Mod";
     console.log("Tema değiştirildi, yeni tema:", isDark ? "dark" : "light");
 });
+const apiKey = 'BURAYA_KENDİ_API_ANAHTARINI_YAPIŞTIR';  // YouTube API Anahtarını buraya ekle
+
+function searchMusic() {
+    const query = document.getElementById('search-input').value;
+    if (!query) return alert('Lütfen bir şarkı adı girin!');
+
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=${apiKey}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = '';
+
+            data.items.forEach(item => {
+                const videoId = item.id.videoId;
+                const title = item.snippet.title;
+
+                const songElement = document.createElement('div');
+                songElement.classList.add('song');
+                songElement.textContent = title;
+                songElement.onclick = () => playMusic(videoId, title);
+
+                resultsContainer.appendChild(songElement);
+            });
+        })
+        .catch(error => console.error('Hata:', error));
+}
+
+function playMusic(videoId, title) {
+    document.getElementById('now-playing').innerText = `Şu an çalan: ${title}`;
+    document.getElementById('youtube-player').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+}
 
