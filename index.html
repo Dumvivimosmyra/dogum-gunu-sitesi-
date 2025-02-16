@@ -26,3 +26,29 @@
     <script src="script.js"></script> <!-- JavaScript bağlandı -->
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğum Günü Müzik Çalar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>🎉 Doğum Günü Müzik Çalar 🎶</h1>
+
+    <input type="text" id="search-input" placeholder="Müzik ara..." />
+    <button onclick="searchMusic()">Ara</button>
+
+    <div id="search-results"></div>
+
+    <div id="music-player">
+        <h3>📻 Radyo Çalar</h3>
+        <p id="now-playing">Şu an çalan: -</p>
+        <iframe id="youtube-player" width="280" height="157" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
