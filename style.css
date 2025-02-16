@@ -107,3 +107,32 @@ button {
     transition: all 0.3s ease-in-out;
     margin: 10px;
 }
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#music-player {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 300px;
+    background: #f3f3f3;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+#search-results {
+    margin-top: 20px;
+}
+
+.song {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.song:hover {
+    background: #e3e3e3;
+}
