@@ -43,3 +43,5 @@ darkModeButton.addEventListener("click", () => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
     darkModeButton.innerText = isDark ? "Aydınlık Mod" : "Karanlık Mod";
 });
+localStorage.clear();
+location.reload();
