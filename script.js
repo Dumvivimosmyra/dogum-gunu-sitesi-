@@ -51,7 +51,8 @@ darkModeButton.addEventListener("click", () => {
     darkModeButton.innerText = isDark ? "Aydınlık Mod" : "Karanlık Mod";
     console.log("Tema değiştirildi, yeni tema:", isDark ? "dark" : "light");
 });
-const apiKey = 'AIzaSyBMO0er75YBNra6a8F539gEIqf3IlVHdAc';  // YouTube API Anahtarını buraya ekle
+
+const apiKey = 'YOUR_API_KEY';  // YouTube API Anahtarını buraya ekle
 
 function searchMusic() {
     const query = document.getElementById('search-input').value;
