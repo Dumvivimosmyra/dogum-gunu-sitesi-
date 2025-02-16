@@ -34,6 +34,8 @@ const body = document.body;
 
 // Sayfa yüklenirken tema kontrolü
 const savedTheme = localStorage.getItem("theme");
+console.log("Sayfa yüklendi, tema kontrolü yapılıyor:", savedTheme);
+
 if (savedTheme === "dark") {
     body.classList.add("dark-mode");
     darkModeButton.innerText = "Aydınlık Mod";
@@ -42,11 +44,11 @@ if (savedTheme === "dark") {
     darkModeButton.innerText = "Karanlık Mod";
 }
 
-// Karanlık/Aydınlık mod değiştirme
 darkModeButton.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
     const isDark = body.classList.contains("dark-mode");
     localStorage.setItem("theme", isDark ? "dark" : "light");
     darkModeButton.innerText = isDark ? "Aydınlık Mod" : "Karanlık Mod";
+    console.log("Tema değiştirildi, yeni tema:", isDark ? "dark" : "light");
 });
 
