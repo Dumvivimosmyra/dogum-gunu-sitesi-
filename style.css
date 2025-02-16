@@ -29,20 +29,21 @@ body {
     margin-top: 50px;
     display: inline-block;
 }
-    h1 {
-        color: #FF69B4; /* Pastel pembe */
-        font-size: 36px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-    }
-    
-    p {
-        font-size: 20px;
-        font-weight: normal;
-        color: #6A0572; /* Pastel mor */
-        margin-top: 15px;
-    }
+
+h1 {
+    color: #FF69B4; /* Pastel pembe */
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+}
+
+p {
+    font-size: 20px;
+    font-weight: normal;
+    color: #6A0572; /* Pastel mor */
+    margin-top: 15px;
+}
 
 button {
     background-color: #FFD1DC; /* Pastel pembe */
@@ -59,58 +60,10 @@ button:hover {
     background-color: #FFB6C1; /* Hafif koyu pastel pembe */
 }
 
-/* Aydınlık Mod */
-body {
-    background-color: #FFDEE9; /* Pastel pembe */
-    color: #4A4A4A;
-}
-
-button {
-    background-color: #FFD1DC; /* Pastel pembe */
-    color: #4A4A4A;
-}
-
 /* Karanlık Mod */
-body.dark-mode {
-    background-color: #333; /* Koyu gri */
-    color: #FFF;
-}
-
-button.dark-mode {
-    background-color: #444;
-    color: #FFF;
-}
-
-/* Varsayılan aydınlık mod stili */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #FFDEE9, #B5FFFC); /* Pastel pembe-mavi */
-    color: #4A4A4A; /* Yazılar için koyu gri */
-    text-align: center;
-    padding: 20px;
-    background-size: 200% 200%;
-    animation: waveAnimation 10s linear infinite;
-}
-
-/* Karanlık mod için stil */
 body.dark-mode {
     background: linear-gradient(135deg, #2c3e50, #34495e); /* Koyu arka plan */
     color: #ecf0f1; /* Beyaz yazı */
-}
-
-button {
-    background-color: #FFD1DC; /* Pastel pembe */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #4A4A4A;
-    margin-top: 15px;
-}
-
-button:hover {
-    background-color: #FFB6C1;
 }
 
 button.dark-mode {
@@ -118,26 +71,39 @@ button.dark-mode {
     color: white;
 }
 
-#message-container {
-    background-color: rgba(255, 255, 255, 0.8); 
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
-    display: inline-block;
+/* Karanlık modda buton rengi değişimi */
+button.dark-mode:hover {
+    background-color: #666;
 }
 
-h1 {
-    color: #FF69B4; 
-    font-size: 36px;
+/* Karanlık/Aydınlık mod butonunu sağ alt köşeye sabitleme */
+#dark-mode-btn {
+    position: fixed;
+    bottom: 20px;   /* Ekranın altından 20px uzaklıkta */
+    right: 20px;    /* Ekranın sağından 20px uzaklıkta */
+    padding: 10px 20px;
+    background-color: #FFD1DC; /* Pastel pembe */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #4A4A4A;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Butona hafif gölge efekti */
+    z-index: 1000; /* Diğer öğelerin üstünde görünmesini sağlar */
+}
+
+#dark-mode-btn:hover {
+    background-color: #FFB6C1; /* Hover durumunda buton rengi */
+}
+
+/* Genel buton stilleri */
+button {
+    font-size: 16px;
     font-weight: bold;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-p {
-    font-size: 20px;
-    font-weight: normal;
-    color: #6A0572;
-    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px;
 }

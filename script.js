@@ -1,4 +1,4 @@
-// İlk rastgele mesajları tanımlıyoruz
+// Rastgele mesajları tanımla
 const messages = [
     "Bugün senin günün! 🎉",
     "Daha nice mutlu yıllara! 🥳",
@@ -7,49 +7,39 @@ const messages = [
     "Her günün bu kadar özel olsun! 🌟"
 ];
 
-// Sayfa yüklendiğinde ilk rastgele mesajı göster
+// Sayfa yüklendiğinde rastgele mesajı göster
 const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 document.getElementById("random-message").innerText = randomMessage;
 
-// Butona tıklanınca rastgele mesaj gösteren fonksiyon
+// Rastgele mesaj gösteren fonksiyon
 function showRandomMessage() {
-    const specialMessages = [  // Butonla gösterilecek farklı mesajlar
+    const specialMessages = [
         "Hayatına renk katacak bir yıl diliyorum! 🎉",
-        "Bu yılın en güzel yılın olsunn! 💖",
+        "Bu yılın en güzel yılın olsun! 💖",
         "Dilerim her günün çok özel geçer! ✨",
         "Her şey gönlünce olsun! 🌸",
-        "Sen ve hayatın çok kıymetli 💫", 
-        "Her şey için teşekkür ederimm 🤗",
+        "Sen ve hayatın çok kıymetli 💫",
+        "Her şey için teşekkür ederim 🤗",
         "İstediğini başarabilir ve yapabilirsin!🌈"
     ];
     
-    const randomSpecialMessage = specialMessages[Math.floor(Math.random() * specialMessages.length)];
-    alert(randomSpecialMessage);  // Mesaj gösteren kutu
+    alert(specialMessages[Math.floor(Math.random() * specialMessages.length)]);
 }
 
-// Butona tıklanıldığında rastgele mesaj göster
 document.getElementById("random-message-btn").addEventListener("click", showRandomMessage);
 
+// Aydınlık/Karanlık mod
 const darkModeButton = document.getElementById("dark-mode-btn");
 const body = document.body;
 
-// LocalStorage'den mod bilgisini al
 if (localStorage.getItem("theme") === "dark") {
     body.classList.add("dark-mode");
-    darkModeButton.innerText = "Aydınlık Mod";  // Buton metnini güncelle
+    darkModeButton.innerText = "Aydınlık Mod";
 }
 
-// Butona tıklanıldığında mod değiştir
-darkModeButton.addEventListener("click", function() {
+darkModeButton.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
-
-    // Modu localStorage'a kaydet
-    if (body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-        darkModeButton.innerText = "Aydınlık Mod";  // Buton metnini güncelle
-    } else {
-        localStorage.removeItem("theme");
-        darkModeButton.innerText = "Karanlık Mod";  // Buton metnini geri al
-    }
+    const isDark = body.classList.contains("dark-mode");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    darkModeButton.innerText = isDark ? "Aydınlık Mod" : "Karanlık Mod";
 });
-
