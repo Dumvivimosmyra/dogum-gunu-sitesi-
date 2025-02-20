@@ -52,8 +52,7 @@ darkModeButton.addEventListener("click", () => {
     console.log("Tema değiştirildi, yeni tema:", isDark ? "dark" : "light");
 });
 
-// API anahtarını config.js'den alıyoruz
-const apiKey = config.apiKey;  // config.js dosyasındaki apiKey'i kullanıyoruz
+const apiKey = 'YOUR_API_KEY';  // YouTube API Anahtarını buraya ekle
 
 function searchMusic() {
     const query = document.getElementById('search-input').value;
@@ -86,6 +85,5 @@ function playMusic(videoId, title) {
     document.getElementById('now-playing').innerText = `Şu an çalan: ${title}`;
     document.getElementById('youtube-player').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 }
-
 
 
