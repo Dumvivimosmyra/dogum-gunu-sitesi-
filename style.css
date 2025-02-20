@@ -2,40 +2,63 @@
 body {
     font-family: Arial, sans-serif;
     transition: background-color 0.3s, color 0.3s;
+    background-color: #f0f8ff; /* Pastel mavi arka plan */
+    color: #333; /* Koyu gri yazı */
 }
 
 /* Karanlık mod */
 body.dark-mode {
-    background-color: #121212;
-    color: #fff;
+    background-color: #333; /* Koyu arka plan */
+    color: #f0f8ff; /* Açık yazı */
 }
 
 /* Aydınlık mod */
 body.light-mode {
-    background-color: #fff;
-    color: #121212;
+    background-color: #fff; /* Beyaz arka plan */
+    color: #333; /* Koyu gri yazı */
+}
+
+/* Başlıklar */
+h1, h2, h3 {
+    transition: color 0.3s;
+    color: #ffb3d9; /* Pastel pembe başlık */
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3 {
+    color: #ffb3d9; /* Pastel pembe başlıklar */
+}
+
+.light-mode h1, .light-mode h2, .light-mode h3 {
+    color: #ffb3d9; /* Pastel pembe başlıklar */
 }
 
 /* Butonlar */
 button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
+    background-color: #ffb3d9; /* Pastel pembe */
+    color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #ddd;
+    background-color: #ff99cc; /* Biraz daha canlı pembe */
+    transform: scale(1.05); /* Hoverda butonun büyümesi */
 }
 
 /* Müzik çalar */
 #music-player {
     position: fixed;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 5px;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 182, 193, 0.8); /* Pastel pembe transparan arka plan */
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
 }
 
 /* Konfeti efekti */
@@ -44,22 +67,12 @@ button:hover {
     100% { transform: translateY(100%); opacity: 0; }
 }
 
-.confetti {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
 .confetti-piece {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: randomColor();
-    animation: confetti 1s infinite;
+    width: 12px;
+    height: 12px;
+    background-color: #ffb3d9; /* Pastel pembe konfeti */
+    animation: confetti 2s infinite;
 }
 
 /* Yüzen konfetiler */
@@ -72,16 +85,24 @@ button:hover {
     animation: float 2s infinite;
 }
 
-/* Diğer detaylar */
-h1, h2, h3 {
-    transition: color 0.3s;
+/* Fare durduğunda konfeti patlama */
+body:hover .confetti-piece {
+    animation: confetti 1s ease-in-out infinite;
 }
 
-.dark-mode h1, .dark-mode h2, .dark-mode h3 {
-    color: #fff;
-}
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
 
-.light-mode h1, .light-mode h2, .light-mode h3 {
-    color: #121212;
+    #music-player {
+        width: 200px;
+        bottom: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+    }
 }
 
