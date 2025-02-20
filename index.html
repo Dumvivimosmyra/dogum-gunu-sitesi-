@@ -1,45 +1,35 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doğum Günü Hediyesi ve Müzik Çalar</title>
-    <link rel="stylesheet" href="style.css"> <!-- CSS bağlandı -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head> 
-
 <body>
-    <!-- Doğum günü mesajı kısmı -->
-    <div id="message-container">
-        <h1>Merhaba! Doğum Günün Kutlu Olsun!</h1>
-        <p id="random-message"></p> <!-- Dinamik rastgele mesaj burada gösterilecek -->
-    </div>
+    <div id="container">
+        <!-- Doğum günü mesajı kısmı -->
+        <div id="message-container">
+            <h1>Merhaba! Doğum Günün Kutlu Olsun!</h1>
+            <p id="random-message"></p> <!-- Dinamik rastgele mesaj burada gösterilecek -->
+        </div>
 
-    <h1>Merhaba Öykü! 🎉</h1>
-    <p>Doğum günün kutlu olsun! Bu siteyi senin için hazırladım. Umarım beğenirsin! 💖</p>
+        <h1>Merhaba Öykü! 🎉</h1>
+        <p>Doğum günün kutlu olsun! Bu siteyi senin için hazırladım. Umarım beğenirsin! 💖</p>
 
-    <!-- Buton ile rastgele mesaj gösterme -->
-    <button id="random-message-btn">Yeni Mesaj Göster</button>
+        <!-- Buton ile rastgele mesaj gösterme -->
+        <button id="random-message-btn">Yeni Mesaj Göster</button>
 
-    <!-- Tema değişikliği için tek buton -->
-    <button id="dark-mode-btn">Karanlık/Aydınlık Mod</button>
+        <!-- Tema değişikliği için tek buton -->
+        <button id="dark-mode-btn">Karanlık/Aydınlık Mod</button>
 
-    <!-- Müzik arama ve çalar kısmı -->
-    <h1>🎉 Doğum Günü Müzik Çalar 🎶</h1>
+        <!-- Müzik arama ve çalar kısmı -->
+        <h1>🎉 Doğum Günü Müzik Çalar 🎶</h1>
+        <input type="text" id="search-input" placeholder="Müzik ara..." />
+        <button onclick="searchMusic()">Ara</button>
 
-    <input type="text" id="search-input" placeholder="Müzik ara..." />
-    <button onclick="searchMusic()">Ara</button>
+        <div id="search-results"></div>
 
-    <div id="search-results"></div>
-
-    <div id="music-player">
-        <h3>📻 Radyo Çalar</h3>
-        <p id="now-playing">Şu an çalan: -</p>
-        <iframe id="youtube-player" width="280" height="157" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div id="music-player">
+            <h3>📻 Radyo Çalar</h3>
+            <p id="now-playing">Şu an çalan: -</p>
+            <iframe id="youtube-player" width="280" height="157" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
     </div>
 
     <!-- JavaScript bağlandı -->
     <script src="script.js"></script>
 </body>
-</html>
 
