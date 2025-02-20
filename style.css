@@ -12,12 +12,6 @@ body.dark-mode {
     color: #f0f8ff; /* Açık yazı */
 }
 
-/* Aydınlık mod */
-body.light-mode {
-    background-color: #fff; /* Beyaz arka plan */
-    color: #333; /* Koyu gri yazı */
-}
-
 /* Başlıklar */
 h1, h2, h3 {
     transition: color 0.3s;
@@ -25,10 +19,6 @@ h1, h2, h3 {
 }
 
 .dark-mode h1, .dark-mode h2, .dark-mode h3 {
-    color: #ffb3d9; /* Pastel pembe başlıklar */
-}
-
-.light-mode h1, .light-mode h2, .light-mode h3 {
     color: #ffb3d9; /* Pastel pembe başlıklar */
 }
 
@@ -75,17 +65,7 @@ button:hover {
     animation: confetti 2s infinite;
 }
 
-/* Yüzen konfetiler */
-@keyframes float {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
-}
-
-.confetti-piece {
-    animation: float 2s infinite;
-}
-
-/* Fare durduğunda konfeti patlama */
+/* Fare üzerine geldiğinde konfeti patlama efekti */
 body:hover .confetti-piece {
     animation: confetti 1s ease-in-out infinite;
 }
@@ -105,4 +85,3 @@ body:hover .confetti-piece {
         padding: 10px 20px;
     }
 }
-
