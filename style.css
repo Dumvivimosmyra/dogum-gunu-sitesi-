@@ -1,137 +1,87 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doğum Günü Hediyesi ve Müzik Çalar</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
-        }
+/* Genel stil */
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-        }
+/* Karanlık mod */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
 
-        .dark-mode {
-            --bg-color: #1e1e1e;
-            --text-color: #f0f0f0;
-        }
+/* Aydınlık mod */
+body.light-mode {
+    background-color: #fff;
+    color: #121212;
+}
 
-        #message-container {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(255, 192, 203, 0.2);
-            border-radius: 10px;
-            margin: 20px auto;
-            width: 80%;
-        }
+/* Butonlar */
+button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        h1, p {
-            margin: 10px 0;
-            font-size: clamp(1.5rem, 2.5vw, 3rem);
-        }
+button:hover {
+    background-color: #ddd;
+}
 
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #ff69b4;
-            color: white;
-            transition: background-color 0.3s;
-        }
+/* Müzik çalar */
+#music-player {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
 
-        button:hover {
-            background-color: #ff1493;
-        }
+/* Konfeti efekti */
+@keyframes confetti {
+    0% { transform: translateY(-100%); opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
+}
 
-        #search-input {
-            padding: 10px;
-            width: 60%;
-            font-size: 1rem;
-            border: 2px solid #ff69b4;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
 
-        #search-results {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: randomColor();
+    animation: confetti 1s infinite;
+}
 
-        .search-item {
-            background-color: rgba(255, 192, 203, 0.2);
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
+/* Yüzen konfetiler */
+@keyframes float {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
 
-        .search-item:hover {
-            transform: scale(1.05);
-        }
+.confetti-piece {
+    animation: float 2s infinite;
+}
 
-        #music-player {
-            text-align: center;
-            margin: 20px auto;
-            width: 80%;
-            padding: 20px;
-            background-color: rgba(255, 192, 203, 0.2);
-            border-radius: 10px;
-        }
+/* Diğer detaylar */
+h1, h2, h3 {
+    transition: color 0.3s;
+}
 
-        #now-playing {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-    </style>
-</head>
+.dark-mode h1, .dark-mode h2, .dark-mode h3 {
+    color: #fff;
+}
 
-<body>
-    <div id="message-container">
-        <h1>Merhaba! Doğum Günün Kutlu Olsun!</h1>
-        <p id="random-message"></p>
-    </div>
+.light-mode h1, .light-mode h2, .light-mode h3 {
+    color: #121212;
+}
 
-    <h1>Merhaba Öykü! 🎉</h1>
-    <p>Doğum günün kutlu olsun! Bu siteyi senin için hazırladım. Umarım beğenirsin! 💖</p>
-
-    <button id="random-message-btn">Yeni Mesaj Göster</button>
-    <button id="dark-mode-btn">Karanlık/Aydınlık Mod</button>
-
-    <h1>🎉 Doğum Günü Müzik Çalar 🎶</h1>
-    <input type="text" id="search-input" placeholder="Müzik ara..." />
-    <button onclick="searchMusic()">Ara</button>
-
-    <div id="search-results"></div>
-
-    <div id="music-player">
-        <h3>📻 Radyo Çalar</h3>
-        <p id="now-playing">Şu an çalan: -</p>
-    </div>
-
-    <script src="config.js"></script>
-    <script src="script.js"></script>
-    <script>
-        const darkModeBtn = document.getElementById('dark-mode-btn');
-        darkModeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-    </script>
-</body>
-</html>
