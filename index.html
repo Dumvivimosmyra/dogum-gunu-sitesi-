@@ -3,43 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doğum Günü Hediyesi ve Müzik Çalar</title>
-    <link rel="stylesheet" href="style.css"> <!-- CSS bağlandı -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head> 
-
+    <title>Doğum Günün Kutlu Olsun! 🎉</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <!-- Doğum günü mesajı kısmı -->
-    <div id="message-container">
-        <h1>Merhaba! Doğum Günün Kutlu Olsun!</h1>
-        <p id="random-message"></p> <!-- Dinamik rastgele mesaj burada gösterilecek -->
+    <div class="container">
+        <h1>Doğum Günün Kutlu Olsun! 🎂</h1>
+        <p id="random-message"></p>
+        <button id="random-message-btn">Sihirli Sözler</button>
+        <button id="dark-mode-btn" class="dark-mode-btn">Karanlık Mod</button>
+
+        <!-- Radyo Tasarımı -->
+        <div id="radio-player">
+            <div class="radio-header">
+                <h3>🎶 Radyo</h3>
+                <input type="text" id="search-input" placeholder="Şarkı ara...">
+                <button onclick="searchMusic()">Ara</button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+            <div id="now-playing" class="now-playing"></div>
+            <iframe id="youtube-player" width="300" height="150" frameborder="0" allow="autoplay"></iframe>
+        </div>
     </div>
 
-    <h1>Merhaba Öykü! 🎉</h1>
-    <p>Doğum günün kutlu olsun! Bu siteyi senin için hazırladım. Umarım beğenirsin! 💖</p>
-
-    <!-- Buton ile rastgele mesaj gösterme -->
-    <button id="random-message-btn">Yeni Mesaj Göster</button>
-
-    <!-- Tema değişikliği için tek buton -->
-    <button id="dark-mode-btn">Karanlık/Aydınlık Mod</button>
-
-    <!-- Müzik arama ve çalar kısmı -->
-    <h1>🎉 Doğum Günü Müzik Çalar 🎶</h1>
-
-    <input type="text" id="search-input" placeholder="Müzik ara..." />
-    <button onclick="searchMusic()">Ara</button>
-
-    <div id="search-results"></div>
-
-    <div id="music-player">
-        <h3>📻 Radyo Çalar</h3>
-        <p id="now-playing">Şu an çalan: -</p>
-        <iframe id="youtube-player" width="280" height="157" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-
-    <!-- JavaScript bağlandı -->
     <script src="script.js"></script>
 </body>
 </html>
+
+<!-- Pano (sol alt köşe) -->
+<div id="note-panel">
+    <h2>Bir Kaç Not:</h2>
+    <p>Şuan siteyi yapmaya çalışıyorum ve tarih 20.02.2025 ve bu sayfayı hiç değiştirmeyeceğim.Sana doğum gününü sorduğum günden beri yapmaya çalışıyorum ve hiç bir bilgim yoktu biraz da yardım alarak elimden geldiğince yapmaya çalıştım umarım hoşuna gider💝.</p>
+    <ul>
+        <li>Bugün müzik dinlemek için harika bir gün bu yüzden istediğin müziği açıp dinle!</li>
+        <li>Eğer müzik açılmıyorsa diğer seçenekleri seç çünkü oynatmayı desteklemiyor ben de anlamadım:D</li>
+        <li>Senin için seçtiğim müzikler var dinlemeni isterim işte onlar: (ekleme)= Düşündüm de müzikler biraz garip ama fikrimden dönmeyeceğim gözünü kapatıp dinlemeni isterim.
+            Çıkmaz sokak (insanlar gerçek olsa) 
+            Infinite Love (Emile Mosseri)
+            Grenadine (Vincent Delerm)
+            Wind Song (Emile Mosseri)
+            Prologue (Evgeny Grinko)
+            Outro (Evgeny Grinko)
+            Doğum/Birth (Büşra Kayıkçı)
+            Once Upon a Time (Evgeny Grinko)
+            my home is where my heart beats (TSU!)
+            Last Words (Mylesxiety)
+            Spiritual But Not (Oliver Koletzki)
+            Forgot Your Name (c152)
+            Apathy (oneheartt)
+
+       </li>
+    </ul>
+</div>
 
