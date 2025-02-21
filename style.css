@@ -1,87 +1,180 @@
 /* Genel stil */
 body {
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s, color 0.3s;
-    background-color: #f0f8ff; /* Pastel mavi arka plan */
-    color: #333; /* Koyu gri yazı */
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.8), rgba(181, 255, 252, 0.6), rgba(255, 240, 245, 0.8)); /* Yumuşak geçişler */
+    color: #4A4A4A; /* Yazılar için koyu gri */
+    text-align: center;
+    padding: 20px;
+    background-size: 400% 400%; /* Dalgalanma efekti için genişlik */
+    animation: waveAnimation 80s ease infinite; /* Animasyonun süresi artırıldı */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Karanlık mod */
+/* Dalgalanma animasyonu */
+@keyframes waveAnimation {
+    0% {
+        background-position: 0% 50%; /* Başlangıç */
+    }
+    50% {
+        background-position: 100% 50%; /* Yarıda dalgalanma */
+    }
+    100% {
+        background-position: 0% 50%; /* Sonra başa dönme */
+    }
+}
+
+/* Karanlık Mod */
 body.dark-mode {
-    background-color: #333; /* Koyu arka plan */
-    color: #f0f8ff; /* Açık yazı */
+    background: radial-gradient(circle, rgba(50, 50, 50, 0.8), rgba(40, 40, 40, 0.6), rgba(10, 10, 10, 0.8)); /* Karanlık modda daha koyu geçişler */
+    color: #f0f8ff;
 }
 
-/* Başlıklar */
-h1, h2, h3 {
-    transition: color 0.3s;
-    color: #ffb3d9; /* Pastel pembe başlık */
+/* Konteyner */
+#message-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Şeffaf beyaz kutu (yazıları daha belirgin yapacak) */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    display: inline-block;
 }
 
-.dark-mode h1, .dark-mode h2, .dark-mode h3 {
-    color: #ffb3d9; /* Pastel pembe başlıklar */
+/* Başlık */
+h1 {
+    color: #FF69B4; /* Pastel pembe */
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+}
+
+/* Paragraf */
+p {
+    font-size: 20px;
+    font-weight: normal;
+    color: #6A0572; /* Pastel mor */
+    margin-top: 15px;
 }
 
 /* Butonlar */
 button {
-    padding: 12px 24px;
+    background-color: #FFD1DC; /* Pastel pembe */
     border: none;
-    background-color: #ffb3d9; /* Pastel pembe */
-    color: #fff;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.2s;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
-button:hover {
-    background-color: #ff99cc; /* Biraz daha canlı pembe */
-    transform: scale(1.05); /* Hoverda butonun büyümesi */
-}
-
-/* Müzik çalar */
+/* Radyo Tasarımı - Sol Alt Kısım */
 #music-player {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000; /* Radyo üstte görünsün */
+}
+
+#music-player input {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#music-player button {
+    padding: 8px 15px;
+    background-color: #FFD1DC;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#search-results {
+    width: 100%;
+    height: 70px; /* Yüksekliği küçültüldü */
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+#search-results .song {
+    font-size: 14px; /* Yazı boyutu küçültüldü */
+    color: #6A0572;
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+#now-playing {
+    font-size: 14px;
+    font-weight: bold;
+    color: #6A0572;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#youtube-player {
+    width: 200px; /* Video boyutunu küçülttük */
+    height: 120px;
+    border: none;
+}
+
+/* Karanlık Mod Butonu */
+#dark-mode-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #FFD1DC;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1001; /* Üstte görünmesi için */
+}
+
+/* Aydınlık ve Karanlık Mod Buton Stili */
+button:focus {
+    outline: none;
+}
+/* Video kısmını gizlemek için */
+#youtube-player {
+    display: none;
+}
+/* Pano (sol alt köşe) */
+#note-panel {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    background-color: rgba(255, 182, 193, 0.8); /* Pastel pembe transparan arka plan */
+    background-color: rgba(255, 255, 255, 0.9); /* Şeffaf beyaz arka plan */
     padding: 15px;
     border-radius: 10px;
-    width: 250px;
-    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 300px; /* Maksimum genişlik */
+    z-index: 10; /* Diğer öğelerin önünde görünmesi için */
+    font-size: 14px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    overflow-y: auto; /* Yazılar arttıkça kaydırma ekler */
+    max-height: 200px; /* Pano yüksekliği */
 }
 
-/* Konfeti efekti */
-@keyframes confetti {
-    0% { transform: translateY(-100%); opacity: 1; }
-    100% { transform: translateY(100%); opacity: 0; }
+/* Pano başlık */
+#note-panel h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #6A0572; /* Pastel mor */
 }
 
-.confetti-piece {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: #ffb3d9; /* Pastel pembe konfeti */
-    animation: confetti 2s infinite;
-}
-
-/* Fare üzerine geldiğinde konfeti patlama efekti */
-body:hover .confetti-piece {
-    animation: confetti 1s ease-in-out infinite;
-}
-
-/* Responsive düzenlemeler */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-
-    #music-player {
-        width: 200px;
-        bottom: 10px;
-    }
-
-    button {
-        padding: 10px 20px;
-    }
-}
