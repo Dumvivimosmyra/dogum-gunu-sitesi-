@@ -1,58 +1,60 @@
-// Rastgele mesajları tanımla
+// Rastgele mesajlar
 const messages = [
     "Bugün senin günün! 🎉",
     "Daha nice mutlu yıllara! 🥳",
     "Umarım harika bir yıl geçirirsin! 💖",
-    "İyi ki doğdun, seni çok seviyoruz! 😊",
+    "İyi ki doğdun, seni çok seviyorum! 😊",
     "Her günün bu kadar özel olsun! 🌟"
 ];
 
-// Sayfa yüklendiğinde rastgele mesajı göster
+// Sayfa yüklendiğinde rastgele mesaj
 const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 document.getElementById("random-message").innerText = randomMessage;
 
-// Rastgele mesaj gösteren fonksiyon
+// Yeni rastgele mesaj
 function showRandomMessage() {
     const specialMessages = [
         "Hayatına renk katacak bir yıl diliyorum! 🎉",
-        "Bu yılın en güzel yılın olsun! 💖",
-        "Dilerim her günün çok özel geçer! ✨",
-        "Her şey gönlünce olsun! 🌸",
-        "Sen ve hayatın çok kıymetli 💫",
-        "Her şey için teşekkür ederim 🤗",
+        "Bu yılın en güzel yılın olsunn! 💖",
+        "Dilerimm her günün çok özel geçerr! ✨",
+        "Her şey gönlünce olsuunn! 🌸",
+        "Senn ve hayatın çok kıymetli 💫", 
+        "Her şey için teşekkür ederimm 🤗",
         "İstediğini başarabilir ve yapabilirsin!🌈"
     ];
-    
     alert(specialMessages[Math.floor(Math.random() * specialMessages.length)]);
 }
 
 document.getElementById("random-message-btn").addEventListener("click", showRandomMessage);
 
-// Aydınlık/Karanlık mod
+// Karanlık/Aydınlık mod
 const darkModeButton = document.getElementById("dark-mode-btn");
 const body = document.body;
 
-// Sayfa yüklenirken tema kontrolü
+// Yerel depolamadan önceki tema bilgisini al
 const savedTheme = localStorage.getItem("theme");
-console.log("Sayfa yüklendi, tema kontrolü yapılıyor:", savedTheme);
 
+// Sayfa yüklendiğinde doğru tema ayarını yap
 if (savedTheme === "dark") {
     body.classList.add("dark-mode");
     darkModeButton.innerText = "Aydınlık Mod";
-} else if (savedTheme === "light") {
-    body.classList.remove("dark-mode");
+} else {
     darkModeButton.innerText = "Karanlık Mod";
 }
 
 darkModeButton.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-    const isDark = body.classList.contains("dark-mode");
+    body.classList.toggle("dark-mode"); // Karanlık modu aç/kapat
+    const isDark = body.classList.contains("dark-mode"); // Tema durumu kontrol et
+
+    // Tema bilgisini yerel depolamaya kaydet
     localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    // Buton metnini değiştir
     darkModeButton.innerText = isDark ? "Aydınlık Mod" : "Karanlık Mod";
-    console.log("Tema değiştirildi, yeni tema:", isDark ? "dark" : "light");
 });
 
-const apiKey = 'AIzaSyBMO0er75YBNra6a8F539gEIqf3IlVHdAc';  // YouTube API Anahtarını buraya ekle
+// YouTube API ile müzik arama
+const apiKey = 'AIzaSyBMO0er75YBNra6a8F539gEIqf3IlVHdAc'; // API anahtarı
 
 function searchMusic() {
     const query = document.getElementById('search-input').value;
@@ -73,17 +75,24 @@ function searchMusic() {
                 const songElement = document.createElement('div');
                 songElement.classList.add('song');
                 songElement.textContent = title;
-                songElement.onclick = () => playMusic(videoId, title);
+                songElement.onclick = () => playMusic(videoId);
 
                 resultsContainer.appendChild(songElement);
             });
         })
-        .catch(error => console.error('Hata:', error));
+        .catch(error => {
+            console.error('API hatası:', error);
+            alert('Bir hata oluştu, lütfen tekrar deneyin.');
+        });
 }
 
-function playMusic(videoId, title) {
-    document.getElementById('now-playing').innerText = `Şu an çalan: ${title}`;
-    document.getElementById('youtube-player').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+// Şarkıyı çalma fonksiyonu
+function playMusic(videoId) {
+    const player = document.getElementById('youtube-player');
+    player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`;
+    document.getElementById('now-playing').innerText = 'Şu anda çalıyor: ' + videoId;
 }
+
+
 
 
