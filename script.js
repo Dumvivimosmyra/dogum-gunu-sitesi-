@@ -59,7 +59,7 @@ darkModeButton.addEventListener("click", () => {
 });
 
 // YouTube API ile müzik arama
-const apiKey = 'AIzaSyBMO0er75YBNra6a8F539gEIqf3IlVHdAc'; // API anahtarınızı burada kullanın
+const apiKey = 'AIzaSyAwZ-jhy-8Sm4D7i3rUZkQFHy-uMzm-NqI'; // API anahtarınızı burada kullanın
 
 function searchMusic() {
     const query = document.getElementById('search-input').value.trim();
