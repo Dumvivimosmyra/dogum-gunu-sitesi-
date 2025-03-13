@@ -1,14 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doğum Günün Kutlu Olsun! 🎉</title>
+    <title>Doğum Günü Sitesi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Doğum Günün Kutlu Olsun! 🎂</h1>
+    <!-- Giriş Ekranı -->
+    <div id="login-container">
+        <h1>Doğum Günü Sitesine Hoş Geldiniz!</h1>
+        <input type="text" id="username" placeholder="Kullanıcı Adı Girin">
+        <button id="login-btn">Giriş Yap</button>
+    </div>
+
+    <!-- Ana İçerik -->
+    <div id="main-content" style="display: none;">
+        <h2>Merhaba, <span id="username-display"></span>!</h2>
         <p id="random-message"></p>
         <button id="random-message-btn">Sihirli Sözler</button>
         <button id="dark-mode-btn" class="dark-mode-btn">🌙 Karanlık Mod</button>
@@ -55,4 +64,6 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
 
