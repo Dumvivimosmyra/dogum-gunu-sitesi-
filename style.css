@@ -196,4 +196,26 @@ button:focus {
     outline: none;
 }
 
+/* Geri Sayım Konteyneri */
+#countdown-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#countdown-container h2 {
+    color: #FF69B4;
+    font-size: 24px;
+}
+
+#countdown {
+    font-size: 32px;
+    color: #6A0572;
+    font-weight: bold;
+}
+
 
