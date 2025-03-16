@@ -115,9 +115,12 @@ function updateCountdown() {
     const now = new Date();
     const timeDifference = birthdayDate - now;
 
-    // Eğer doğum günü gelmişse, diğer sayfaya geçiş yap
+    // Eğer doğum günü gelmişse, içeriği değiştir
     if (timeDifference <= 0) {
-        window.location.href = "dogumgunu.html"; // Diğer sayfaya yönlendir
+        // Geri sayım ve diğer içerikleri gizle
+        document.getElementById("countdown-container").style.display = 'none';
+        // Sayfanın geri kalan kısmını göster
+        document.querySelector(".container").style.display = 'block';
     }
 
     // Gün, saat, dakika ve saniye hesaplama
