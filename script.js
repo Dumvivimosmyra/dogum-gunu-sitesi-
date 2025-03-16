@@ -101,10 +101,9 @@ function playMusic(videoId) {
     document.getElementById('now-playing').innerText = `Şu anda çalıyor: ${videoId}`;
 }
 
-// Doğum günü tarihi
-const birthdayDate = new Date("2025-03-25T00:05:00"); // 5 dakika sonrasını manuel olarak ayarla
-
-
+// Test için doğum günü tarihini 5 dakika sonrası olarak ayarlıyoruz
+const birthdayDate = new Date();
+birthdayDate.setMinutes(birthdayDate.getMinutes() + 5); // Şu anki zamana 5 dakika ekler
 
 // Sayfa yüklendiğinde geri sayımı başlat
 document.addEventListener("DOMContentLoaded", () => {
@@ -117,12 +116,9 @@ function updateCountdown() {
     const now = new Date();
     const timeDifference = birthdayDate - now;
 
-    // Eğer doğum günü gelmişse, içeriği değiştir
+    // Eğer doğum günü gelmişse, diğer sayfaya geçiş yap
     if (timeDifference <= 0) {
-        // Geri sayım ve diğer içerikleri gizle
-        document.getElementById("countdown-container").style.display = 'none';
-        // Sayfanın geri kalan kısmını göster
-        document.querySelector(".container").style.display = 'block';
+        window.location.href = "dogumgunu.html"; // Diğer sayfaya yönlendir
     }
 
     // Gün, saat, dakika ve saniye hesaplama
@@ -134,5 +130,4 @@ function updateCountdown() {
     // Geri sayım metnini güncelle
     document.getElementById("countdown").innerHTML = `${days}g ${hours}s ${minutes}d ${seconds}s`;
 }
-
 
