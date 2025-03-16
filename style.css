@@ -23,6 +23,11 @@ body.dark-mode {
     color: #f0f8ff;
 }
 
+body.dark-mode #dark-mode-btn {
+    background-color: #6A0572;
+    color: #FFD1DC;
+}
+
 /* Konteyner */
 #message-container {
     background-color: rgba(255, 255, 255, 0.9);
@@ -40,6 +45,14 @@ h1 {
     font-weight: bold;
     letter-spacing: 2px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Paragraf */
+p {
+    font-size: 20px;
+    font-weight: normal;
+    color: #6A0572;
+    margin-top: 15px;
 }
 
 /* Butonlar */
@@ -60,7 +73,7 @@ button:hover {
 }
 
 /* Radyo Tasarımı */
-#radio-player {
+#music-player {
     position: fixed;
     left: 10px;
     bottom: 10px;
@@ -76,7 +89,7 @@ button:hover {
     z-index: 1000;
 }
 
-#radio-player input {
+#music-player input {
     width: 80%;
     padding: 8px;
     margin-bottom: 10px;
@@ -85,7 +98,12 @@ button:hover {
     outline: none;
 }
 
-#radio-player button {
+#music-player input:focus {
+    border-color: #6A0572;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+
+#music-player button {
     padding: 8px 15px;
     background-color: #FFD1DC;
     border: none;
@@ -118,27 +136,12 @@ button:hover {
     margin-top: 10px;
 }
 
-/* Geri Sayım Alanı */
-#countdown-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    color: white;
-    z-index: 9999;
+/* Video kısmını gizlemek */
+#youtube-player {
+    display: none;
 }
 
-#countdown {
-    font-size: 36px;
-    font-weight: bold;
-}
-
-/* Pano (Not Alanı) */
+/* Pano (sol alt köşe) */
 #note-panel {
     position: fixed;
     bottom: 20px;
@@ -156,6 +159,24 @@ button:hover {
     max-height: 200px;
 }
 
+#note-panel h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #6A0572;
+}
+
+/* Kaydırma çubuğu */
+#note-panel::-webkit-scrollbar,
+#search-results::-webkit-scrollbar {
+    width: 6px;
+}
+
+#note-panel::-webkit-scrollbar-thumb,
+#search-results::-webkit-scrollbar-thumb {
+    background-color: #FF69B4;
+    border-radius: 10px;
+}
+
 /* Karanlık Mod Butonu */
 #dark-mode-btn {
     position: fixed;
@@ -167,7 +188,10 @@ button:hover {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    z-index: 20;
+    z-index: 1001;
 }
 
-
+/* Buton Fokus Stili */
+button:focus {
+    outline: none;
+}
