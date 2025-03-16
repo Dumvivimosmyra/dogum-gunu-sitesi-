@@ -102,7 +102,7 @@ function playMusic(videoId) {
 }
 
 // Doğum günü tarihi
-const birthdayDate = new Date("2025-04-01T00:00:00"); // Doğum günü tarihi burada
+const birthdayDate = new Date("2025-03-25T00:00:00"); // Doğum günü tarihi burada
 
 // Sayfa yüklendiğinde geri sayımı başlat
 document.addEventListener("DOMContentLoaded", () => {
