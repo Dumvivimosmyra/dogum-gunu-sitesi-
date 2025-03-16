@@ -102,7 +102,8 @@ function playMusic(videoId) {
 }
 
 // Doğum günü tarihi
-const birthdayDate = new Date(new Date().getTime() + 5 * 60 * 1000); // 5 dakika sonrası
+const birthdayDate = new Date("2025-03-25T00:05:00"); // 5 dakika sonrasını manuel olarak ayarla
+
 
 
 // Sayfa yüklendiğinde geri sayımı başlat
