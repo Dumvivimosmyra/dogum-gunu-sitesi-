@@ -101,33 +101,30 @@ function playMusic(videoId) {
     document.getElementById('now-playing').innerText = `Şu anda çalıyor: ${videoId}`;
 }
 
-// Test için doğum günü tarihini 5 dakika sonrası olarak ayarlıyoruz
-const birthdayDate = new Date();
-birthdayDate.setMinutes(birthdayDate.getMinutes() + 5); // Şu anki zamana 5 dakika ekler
+// Şu anki zamanı 5 dakika sonrası olarak ayarlama
+const currentDate = new Date();
+currentDate.setMinutes(currentDate.getMinutes() + 5); // 5 dakika ekleme
 
-// Sayfa yüklendiğinde geri sayımı başlat
+// Geri sayımı başlat
 document.addEventListener("DOMContentLoaded", () => {
-    updateCountdown(); // Geri sayımı başlat
-    setInterval(updateCountdown, 1000); // Her saniye geri sayımı güncelle
+    updateCountdown(currentDate); // Güncellenmiş tarihi kullanarak geri sayımı başlat
+    setInterval(() => updateCountdown(currentDate), 1000); // Her saniye geri sayımı güncelle
 });
 
-// Geri sayım güncelleme fonksiyonu
-function updateCountdown() {
+function updateCountdown(birthdayDate) {
     const now = new Date();
     const timeDifference = birthdayDate - now;
 
-    // Eğer doğum günü gelmişse, diğer sayfaya geçiş yap
     if (timeDifference <= 0) {
         window.location.href = "dogumgunu.html"; // Diğer sayfaya yönlendir
     }
 
-    // Gün, saat, dakika ve saniye hesaplama
     const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-    // Geri sayım metnini güncelle
     document.getElementById("countdown").innerHTML = `${days}g ${hours}s ${minutes}d ${seconds}s`;
 }
+
 
