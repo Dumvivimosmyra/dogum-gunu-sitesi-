@@ -68,7 +68,7 @@ function searchMusic() {
         return;
     }
 
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=${apiKey}`;
+    const url = https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=${apiKey};
 
     fetch(url)
         .then(response => response.json())
@@ -97,34 +97,7 @@ function searchMusic() {
 // Şarkıyı çalma fonksiyonu
 function playMusic(videoId) {
     const player = document.getElementById('youtube-player');
-    player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`;
-    document.getElementById('now-playing').innerText = `Şu anda çalıyor: ${videoId}`;
+    player.src = https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0;
+    document.getElementById('now-playing').innerText = Şu anda çalıyor: ${videoId};
 }
-
-// Şu anki zamanı 5 dakika sonrası olarak ayarlama
-const currentDate = new Date();
-currentDate.setMinutes(currentDate.getMinutes() + 5); // 5 dakika ekleme
-
-// Geri sayımı başlat
-document.addEventListener("DOMContentLoaded", () => {
-    updateCountdown(currentDate); // Güncellenmiş tarihi kullanarak geri sayımı başlat
-    setInterval(() => updateCountdown(currentDate), 1000); // Her saniye geri sayımı güncelle
-});
-
-function updateCountdown(birthdayDate) {
-    const now = new Date();
-    const timeDifference = birthdayDate - now;
-
-    if (timeDifference <= 0) {
-        window.location.href = "dogumgunu.html"; // Diğer sayfaya yönlendir
-    }
-
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerHTML = `${days}g ${hours}s ${minutes}d ${seconds}s`;
-}
-
 
