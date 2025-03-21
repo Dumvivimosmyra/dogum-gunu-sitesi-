@@ -59,12 +59,12 @@ darkModeButton.addEventListener("click", () => {
 });
 
 // YouTube API ile müzik arama
-const apiKey = 'YOUR_YOUTUBE_API_KEY'; // API anahtarınızı burada kullanın
+const apiKey = 'AIzaSyAwZ-jhy-8Sm4D7i3rUZkQFHy-uMzm-NqI'; // API anahtarınızı burada kullanın
 
 function searchMusic() {
     const query = document.getElementById('search-input').value.trim();
     if (!query) {
-        alert('Lütfen bir şarkı adı girin!');
+        alert('Hanım efendi lütfen istediğiniz şarkıyı buraya giriniz!:)');
         return;
     }
 
@@ -90,7 +90,7 @@ function searchMusic() {
         })
         .catch(error => {
             console.error('API hatası:', error);
-            alert('Bir hata oluştu, lütfen tekrar deneyin.');
+            alert('Sanırım bir hata yaptın hanım efendi.Lütfen tekrar dene!');
         });
 }
 
