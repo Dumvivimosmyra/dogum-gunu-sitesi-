@@ -59,7 +59,7 @@ darkModeButton.addEventListener("click", () => {
 });
 
 // YouTube API ile müzik arama
-const apiKey = 'AIzaSyAwZ-jhy-8Sm4D7i3rUZkQFHy-uMzm-NqI'; // API anahtarınızı burada kullanın
+const apiKey = 'YOUR_YOUTUBE_API_KEY'; // API anahtarınızı burada kullanın
 
 function searchMusic() {
     const query = document.getElementById('search-input').value.trim();
@@ -68,7 +68,7 @@ function searchMusic() {
         return;
     }
 
-    const url = https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=${apiKey};
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=${apiKey}`;
 
     fetch(url)
         .then(response => response.json())
@@ -97,7 +97,28 @@ function searchMusic() {
 // Şarkıyı çalma fonksiyonu
 function playMusic(videoId) {
     const player = document.getElementById('youtube-player');
-    player.src = https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0;
-    document.getElementById('now-playing').innerText = Şu anda çalıyor: ${videoId};
+    player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`;
+    document.getElementById('now-playing').innerText = `Şu anda çalıyor: ${videoId}`;
 }
+
+// Videoyu gizlemek için iframe stilini ayarla
+    player.style.display = 'none'; // Videoyu gizler
+
+    document.getElementById('now-playing').innerText = `Şu anda çalıyor: ${videoId}`;
+}
+
+// Sayfa yüklendiğinde karanlık mod kontrolü
+document.addEventListener("DOMContentLoaded", () => {
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode === "enabled") {
+        document.body.classList.add("dark-mode");
+    }
+});
+
+// Karanlık mod geçişinde renkleri kaydetme
+function toggleDarkMode() {
+    const isDarkMode = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+}
+
 
